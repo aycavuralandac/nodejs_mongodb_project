@@ -1,0 +1,30 @@
+{
+  "name": "mongodb_fetch_data",
+  "version": "1.0.0",
+  "description": "Fetch data from MongoDB project ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r dotenv/config index.js",
+    "test": "export ON_TEST=true && jest 'test/**/*.test.js' "
+  },
+  "author": "Ayça Vural Andaç",
+  "license": "ISC",
+  "dependencies": {
+    "@joi/date": "^2.1.0",
+    "babel-eslint": "^10.1.0",
+    "body-parser": "^1.19.1",
+    "dotenv": "^16.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "express": "^4.17.2",
+    "express-body-trimmer": "^1.0.3",
+    "jest": "^27.4.7",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "prettier-eslint": "^13.0.0",
+    "winston": "^3.5.1"
+  }
+}
