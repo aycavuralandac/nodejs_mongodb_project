@@ -1,5 +1,6 @@
 const dbConst = {
   RECORD: {
+    TABLE_NAME: 'record',
     KEY: 'key',
     VALUE: 'value',
     CREATED_AT: 'createdAt',
@@ -10,6 +11,9 @@ const dbConst = {
     END_DATE: 'endDate',
     MIN_COUNT: 'minCount',
     MAX_COUNT: 'maxCount',
+  },
+  AGGREGATION: {
+    TOTAL_COUNT: 'totalCount',
   },
 };
 

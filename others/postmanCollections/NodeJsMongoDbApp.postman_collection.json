@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "938ad12e-9d25-4e62-8823-e9638bc667ee",
+		"name": "NodeJsMongoDbApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch Data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{BASIC_AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\": \"2015-01-26\" ,\n    \"endDate\": \"2018-02-02\",\n    \"minCount\": 2700,\n    \"maxCount\": 3000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL_HEROKU}}/api/records",
+					"host": [
+						"{{BASE_URL_HEROKU}}"
+					],
+					"path": [
+						"api",
+						"records"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

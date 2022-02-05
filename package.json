@@ -4,8 +4,8 @@
   "description": "Fetch data from MongoDB project ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js",
-    "test": "export ON_TEST=true && jest 'test/**/*.test.js' "
+    "start": "nodemon -r dotenv/config index.js",    
+    "test": "export ON_TEST=true && jest \"test/.*\\.test\\.js\""
   },
   "author": "Ayça Vural Andaç",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "express-body-trimmer": "^1.0.3",
     "jest": "^27.4.7",
     "joi": "^17.6.0",
+    "mongodb-memory-server": "^8.2.0",
     "mongoose": "^6.2.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
