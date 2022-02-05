@@ -15,6 +15,7 @@ const Response = {
   WRONG_DATA_FORMAT: ResponseObj(1, 'Wrong data format'),
   INVALID_AUTHENTICATION: ResponseObj(2, 'Invalid Authentication Credentials'),
   MISSING_AUTHORIZATION_HEADER: ResponseObj(3, 'Missing Authorization Header'),
+  ERROR_GENERAL: ResponseObj(4, 'Error when fetching data!'),
 };
 
 module.exports = {

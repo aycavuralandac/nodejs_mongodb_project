@@ -13,30 +13,22 @@ module.exports = {
     const conditionDate = { createdAt: { $gte: new Date(startDate), $lte: new Date(endDate) } };
     const conditionValue = { totalCount: { $gte: minCount, $lte: maxCount } };
 
-    try {
-      const result = await Record.aggregate([
-        { $match: conditionDate },
-        { $unwind: '$counts' },
-        {
-          $group: {
-            _id: '$key',
-            createdAt: { $first: '$createdAt' },
-            totalCount: {
-              $sum: '$counts',
-            },
+    const result = await Record.aggregate([
+      { $match: conditionDate },
+      { $unwind: '$counts' },
+      {
+        $group: {
+          _id: '$key',
+          createdAt: { $first: '$createdAt' },
+          totalCount: {
+            $sum: '$counts',
           },
         },
-        { $match: conditionValue },
-        { $project: { _id: 0, key: '$_id', totalCount: 1, createdAt: '$createdAt' } },
-      ]);
+      },
+      { $match: conditionValue },
+      { $project: { _id: 0, key: '$_id', totalCount: 1, createdAt: '$createdAt' } },
+    ]);
 
-      return result;
-    } catch (err) {
-      logger.error(`Unexpected error during operation.`, {
-        function: fileName,
-        error: err,
-      });
-      return err;
-    }
+    return result;
   },
 };
