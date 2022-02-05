@@ -53,3 +53,13 @@ The API expects four inputs which are:
 - endDate (YYYY-DD-MM)
 - minCount (number)
 - maxCount (number)
+
+## Tests
+I used in-memory database for tests for quick performance. 
+Necessary packages can run with:
+##### `npm test`
+Test database could also be used.
+
+## Postman Collection
+Postman Collection and .env parameters can be found this path in the project :
+others/postmanCollections
