@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const expressBodyTrimmer = require('express-body-trimmer');
 const { ENV_VAR } = require('./src/config/env.config');
 const logger = require('./src/config/logger.config').log;
-const db = require('./src/models');
+const db = require('./src/models/db');
 const routeRecord = require('./src/routes/record.route');
 
 const app = express();

@@ -1,11 +1,13 @@
+const { RECORD } = require('../config/constant.config').dbConst;
+
 module.exports = (mongoose) => {
   const Record = mongoose.model(
-    'record',
+    RECORD.TABLE_NAME,
     mongoose.Schema({
-      key: String,
-      value: String,
-      createdAt: Date,
-      counts: Array,
+      [RECORD.KEY]: String,
+      [RECORD.VALUE]: String,
+      [RECORD.CREATED_AT]: Date,
+      [RECORD.COUNTS]: Array,
     }),
   );
 

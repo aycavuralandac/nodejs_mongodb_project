@@ -1,13 +1,7 @@
 const { MOCK_DATA } = require('../src/config/test.config');
 const db = require('../src/models/db');
 const Record = db.records;
-const serviceRecord = require('../src/services/record.service');
 const dbHandler = require('./dbHandler');
-const ResponseObj = {
-  totalCount: 0,
-  key: '',
-  createdAt: new Date(),
-};
 
 /**
  * Connect to a new in-memory database before running any tests.
@@ -24,18 +18,17 @@ afterEach(async () => await dbHandler.clearDatabase());
  */
 afterAll(async () => await dbHandler.closeDatabase());
 
-describe('Record service test', () => {
+describe('Record model test', () => {
   /**
-   * Tests that a valid record can be fetched
+   * Tests that a valid record can be created without throwing any errors.
    */
-  it('Fetch data and response check with criterias', async () => {
+  it('can be created correctly', async () => {
     const record = new Record(MOCK_DATA.RECORD);
     await record.save();
-
-    const fetchedRecord = await serviceRecord.findAll(MOCK_DATA.FILTER);
-
-    expect(async () => await serviceRecord.findAll(MOCK_DATA.FILTER)).not.toThrow();
-    expect(Array.isArray(fetchedRecord)).toBe(true);
-    expect(Object.keys(fetchedRecord[0])).toEqual(Object.keys(ResponseObj));
+    const fetchedRecord = await Record.findOneAndUpdate(
+      { _id: record._id },
+      { key: MOCK_DATA.RECORD.key },
+    );
+    expect(fetchedRecord.key).toEqual(MOCK_DATA.RECORD.key);
   });
 });
